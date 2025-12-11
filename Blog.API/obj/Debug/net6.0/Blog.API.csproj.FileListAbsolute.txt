@@ -1,0 +1,8 @@
+D:\Dev\Blog\Blog\Blog.API\obj\Debug\net6.0\Blog.API.csproj.AssemblyReference.cache
+D:\Dev\Blog\Blog\Blog.API\obj\Debug\net6.0\rpswa.dswa.cache.json
+D:\Dev\Blog\Blog\Blog.API\obj\Debug\net6.0\Blog.API.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev\Blog\Blog\Blog.API\obj\Debug\net6.0\Blog.API.AssemblyInfoInputs.cache
+D:\Dev\Blog\Blog\Blog.API\obj\Debug\net6.0\Blog.API.AssemblyInfo.cs
+D:\Dev\Blog\Blog\Blog.API\obj\Debug\net6.0\Blog.API.csproj.CoreCompileInputs.cache
+D:\Dev\Blog\Blog\Blog.API\obj\Debug\net6.0\Blog.API.MvcApplicationPartsAssemblyInfo.cs
+D:\Dev\Blog\Blog\Blog.API\obj\Debug\net6.0\Blog.API.MvcApplicationPartsAssemblyInfo.cache
