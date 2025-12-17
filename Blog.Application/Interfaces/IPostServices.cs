@@ -11,10 +11,10 @@ namespace Blog.Application.Interfaces
 {
     public interface IPostServices
     {
-        Task<BaseResponse> CreatePostAsync(CreateOrUpdatePostDto dto, string UserId,string CategoryName);
-        Task<BaseResponse> UpdatePostAsync(CreateOrUpdatePostDto dto, string UserId, string PostId);
         Task<SingleResponse<PostDto>> GetPostByIdAsync(string PostId);
-        Task<ListResponse<PostDto>> GetAllPost();
-        Task<BaseResponse> DeletePost(string Id);
+        Task<ListResponse<PostDto>> GetAllPostAsync();
+        Task<BaseResponse> CreatePostAsync(CreateOrUpdatePostDto dto, string UserId);
+        Task<BaseResponse> UpdatePostAsync(CreateOrUpdatePostDto dto, string UserId, string PostId);
+        Task<BaseResponse> DeletePostAsync(string Id);
     }
 }

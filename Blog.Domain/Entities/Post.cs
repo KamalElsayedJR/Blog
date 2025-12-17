@@ -17,6 +17,8 @@ namespace Blog.Domain.Entities
         public DateTimeOffset ModifiedAt { get; set; }
         public string CategoryId { get; set; }
         public Category Category { get; set; }
+        //public string CommentId { get; set; }
+        public List<Comment> Comments { get; set; } = new List<Comment>();
         public string UserId { get; set; }
         public Post()
         {

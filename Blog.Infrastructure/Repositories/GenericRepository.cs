@@ -1,4 +1,5 @@
 ﻿using Blog.Domain.Interfaces;
+using Blog.Domain.Specifications;
 using Blog.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -27,5 +28,13 @@ namespace Blog.Infrastructure.Repositories
         public async Task<IReadOnlyList<T>> GetAllAsync()
         => await _dbContext.Set<T>().ToListAsync();
 
+        public async Task<IReadOnlyList<T>> GetAllWithSpecAsync(ISpecification<T> Spec)
+        {
+            return await SpecificationEvalutor<T>.GetQuery(_dbContext.Set<T>(), Spec).ToListAsync();
+        }
+        public async Task<T> GetByIdWithSpecAsync(ISpecification<T> Spec)
+        {
+            return await SpecificationEvalutor<T>.GetQuery(_dbContext.Set<T>(), Spec).FirstOrDefaultAsync();
+        }
     }
 }

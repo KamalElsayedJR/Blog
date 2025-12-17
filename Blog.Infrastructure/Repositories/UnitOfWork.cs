@@ -12,7 +12,7 @@ namespace Blog.Infrastructure.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private readonly BlogDbContext _dbContext;
-        private Hashtable _repository;
+        private Hashtable _repository =new Hashtable();
 
         public ICategoryRepository CategoryRepository { get; set; }
 

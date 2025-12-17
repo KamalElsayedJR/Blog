@@ -1,0 +1,15 @@
+D:\Dev\Blog\Blog\Blog.Application\obj\Debug\net6.0\Blog.Application.csproj.AssemblyReference.cache
+D:\Dev\Blog\Blog\Blog.Application\obj\Debug\net6.0\Blog.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev\Blog\Blog\Blog.Application\obj\Debug\net6.0\Blog.Application.AssemblyInfoInputs.cache
+D:\Dev\Blog\Blog\Blog.Application\obj\Debug\net6.0\Blog.Application.AssemblyInfo.cs
+D:\Dev\Blog\Blog\Blog.Application\obj\Debug\net6.0\Blog.Application.csproj.CoreCompileInputs.cache
+D:\Dev\Blog\Blog\Blog.Application\bin\Debug\net6.0\Blog.Application.deps.json
+D:\Dev\Blog\Blog\Blog.Application\bin\Debug\net6.0\Blog.Application.dll
+D:\Dev\Blog\Blog\Blog.Application\bin\Debug\net6.0\Blog.Application.pdb
+D:\Dev\Blog\Blog\Blog.Application\bin\Debug\net6.0\Blog.Domain.dll
+D:\Dev\Blog\Blog\Blog.Application\bin\Debug\net6.0\Blog.Domain.pdb
+D:\Dev\Blog\Blog\Blog.Application\obj\Debug\net6.0\Blog.App.C7D7B2EA.Up2Date
+D:\Dev\Blog\Blog\Blog.Application\obj\Debug\net6.0\Blog.Application.dll
+D:\Dev\Blog\Blog\Blog.Application\obj\Debug\net6.0\refint\Blog.Application.dll
+D:\Dev\Blog\Blog\Blog.Application\obj\Debug\net6.0\Blog.Application.pdb
+D:\Dev\Blog\Blog\Blog.Application\obj\Debug\net6.0\ref\Blog.Application.dll

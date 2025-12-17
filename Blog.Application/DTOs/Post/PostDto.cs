@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Blog.Application.DTOs.Comment;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,8 @@ namespace Blog.Application.DTOs.Post
         public string ImageUrl { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
         public string Category { get; set; }
+        //public List<string> UserName { get; set; }
+        public List<string> Comments { get; set; }
+        //public List<CommentWithUser> Comments { get; set; }
     }
 }

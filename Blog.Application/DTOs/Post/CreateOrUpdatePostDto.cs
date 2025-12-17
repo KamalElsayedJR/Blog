@@ -16,7 +16,6 @@ namespace Blog.Application.DTOs.Post
         [Required]
         public string ImageUrl { get; set; }
         [Required]
-        public int CategoryId { get; set; }
-
+        public string CategoryName { get; set; }
     }
 }

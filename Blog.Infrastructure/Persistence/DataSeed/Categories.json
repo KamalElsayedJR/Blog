@@ -1,0 +1,52 @@
+[
+  {
+    "Id": "cat-1",
+    "Name": "Technology",
+    "Description": "Technology related articles"
+  },
+  {
+    "Id": "cat-2",
+    "Name": "Programming",
+    "Description": "Programming tutorials and tips"
+  },
+  {
+    "Id": "cat-3",
+    "Name": "WebDevelopment",
+    "Description": "Frontend and backend development"
+  },
+  {
+    "Id": "cat-4",
+    "Name": "MobileApps",
+    "Description": "Android and iOS development"
+  },
+  {
+    "Id": "cat-5",
+    "Name": "AI",
+    "Description": "Artificial intelligence topics"
+  },
+  {
+    "Id": "cat-6",
+    "Name": "Databases",
+    "Description": "SQL and NoSQL databases"
+  },
+  {
+    "Id": "cat-7",
+    "Name": "Security",
+    "Description": "Cyber security concepts"
+  },
+  {
+    "Id": "cat-8",
+    "Name": "DevOps",
+    "Description": "CI/CD and cloud tools"
+  },
+  {
+    "Id": "cat-9",
+    "Name": "Lifestyle",
+    "Description": "Life experiences"
+  },
+  {
+    "Id": "cat-10",
+    "Name": "Career",
+    "Description": "Developer career growth"
+  }
+]

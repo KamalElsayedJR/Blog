@@ -14,6 +14,7 @@ namespace Blog.Domain.Entities
         public string PostId { get; set; }
         public Post Post{ get; set; }
         public string UserId { get; set; }
+        //public string UserName { get; set; }
         public Comment()
         {
             Id = Guid.NewGuid().ToString();

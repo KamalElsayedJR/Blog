@@ -1,4 +1,5 @@
 ﻿using Blog.Application.DTOs;
+using Blog.Application.DTOs.Comment;
 using Blog.Application.Interfaces;
 using Blog.Domain.Entities;
 using Blog.Domain.Interfaces;
@@ -19,13 +20,14 @@ namespace Blog.Application.Services
             _uof = uof;
         }
         //create comment
-        public async Task<BaseResponse> CreateComment(string comment, string userId, string postId)
+        public async Task<BaseResponse> CreateComment(string comment, string userId, string postId /*,string UserName*/)
         {
             Comment commentEtntiy = new Comment()
             {
                 Text = comment,
                 UserId = userId,
                 PostId = postId,
+                //UserName = UserName
             };
             await _uof.GenericRepository<Comment>().AddAsync(commentEtntiy);
             if (await _uof.SaveChangesAsync() <= 0) return new BaseResponse(false, "Error During Save Comment");
@@ -50,5 +52,6 @@ namespace Blog.Application.Services
             if (await _uof.SaveChangesAsync() <= 0) return new BaseResponse(false, "Error During Edit Comment");
             return new BaseResponse(true, "Comment Edited Successfully");
         }
+
     }
 }
