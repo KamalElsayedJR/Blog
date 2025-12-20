@@ -46,8 +46,13 @@ namespace Blog.Application.Services
         public async Task<BaseResponse> CreatePostAsync(CreateOrUpdatePostDto dto,string UserId)
         {
             var MappedPost = _mapper.Map<CreateOrUpdatePostDto, Post>(dto);
+
+            //var category = await _uof.CategoryRepository.GetCategoryByName(dto.CategoryName);
+            if (_uof == null) throw new Exception("_uof is null");
+            if (_uof.CategoryRepository == null) throw new Exception("CategoryRepository is null");
+
             var category = await _uof.CategoryRepository.GetCategoryByName(dto.CategoryName);
-            if(category is null) return new BaseResponse(false,"Category Not Found");
+            if (category is null) return new BaseResponse(false,"Category Not Found");
             MappedPost.CategoryId = category.Id;
             MappedPost.UserId = UserId;
             await _uof.GenericRepository<Post>().AddAsync(MappedPost);
@@ -55,11 +60,10 @@ namespace Blog.Application.Services
             return new BaseResponse(true,"Post Created Successfuly");
         }
         //Update Post
-        public async Task<BaseResponse> UpdatePostAsync(CreateOrUpdatePostDto dto, string UserId, string PostId)
+        public async Task<BaseResponse> UpdatePostAsync(CreateOrUpdatePostDto dto, string PostId)
         {
             var Post = await _uof.GenericRepository<Post>().GetByIdAsync(PostId);
             if(Post is null) return new BaseResponse(false,"Post Not Found");
-            if(Post.UserId != UserId) return new BaseResponse(false,"You are not Authorized to Update this Post");
             _mapper.Map(dto, Post);
             _uof.GenericRepository<Post>().Update(Post);
             if(await _uof.SaveChangesAsync() <=0 ) return new BaseResponse(false,"Couldnt Update Post");

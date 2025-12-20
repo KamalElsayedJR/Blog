@@ -20,14 +20,14 @@ namespace Blog.Application.Services
             _uof = uof;
         }
         //create comment
-        public async Task<BaseResponse> CreateComment(string comment, string userId, string postId /*,string UserName*/)
+        public async Task<BaseResponse> CreateComment(string comment, string userId, string postId, string UserName)
         {
             Comment commentEtntiy = new Comment()
             {
                 Text = comment,
                 UserId = userId,
                 PostId = postId,
-                //UserName = UserName
+                UserName = UserName
             };
             await _uof.GenericRepository<Comment>().AddAsync(commentEtntiy);
             if (await _uof.SaveChangesAsync() <= 0) return new BaseResponse(false, "Error During Save Comment");

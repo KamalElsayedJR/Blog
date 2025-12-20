@@ -188,7 +188,7 @@
   {
     "ContainingType": "Blog.API.Controllers.CommentController",
     "Method": "AddCommentToPost",
-    "RelativePath": "api/Comment/AddComment",
+    "RelativePath": "api/Comment/AddComment/{PostId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -201,7 +201,7 @@
       {
         "Name": "PostId",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [

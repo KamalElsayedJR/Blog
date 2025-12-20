@@ -14,7 +14,7 @@ namespace Blog.Application.Interfaces
         Task<SingleResponse<PostDto>> GetPostByIdAsync(string PostId);
         Task<ListResponse<PostDto>> GetAllPostAsync();
         Task<BaseResponse> CreatePostAsync(CreateOrUpdatePostDto dto, string UserId);
-        Task<BaseResponse> UpdatePostAsync(CreateOrUpdatePostDto dto, string UserId, string PostId);
+        Task<BaseResponse> UpdatePostAsync(CreateOrUpdatePostDto dto, string PostId);
         Task<BaseResponse> DeletePostAsync(string Id);
     }
 }

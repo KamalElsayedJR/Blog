@@ -214,7 +214,7 @@
         }
       }
     },
-    "/api/Comment/AddComment": {
+    "/api/Comment/AddComment/{PostId}": {
       "post": {
         "tags": [
           "Comment"
@@ -222,7 +222,8 @@
         "parameters": [
           {
             "name": "PostId",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -691,6 +692,10 @@
             "$ref": "#/components/schemas/Post"
           },
           "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
             "type": "string",
             "nullable": true
           }

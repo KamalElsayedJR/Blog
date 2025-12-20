@@ -12,7 +12,7 @@ namespace Blog.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class CommentController : ControllerBase
     {
         private readonly ICommentService _commentService;
@@ -24,16 +24,16 @@ namespace Blog.API.Controllers
             _uow = uow;
         }
 
-        [HttpPost("AddComment")]
-        public async Task<ActionResult<BaseResponse>> AddCommentToPost(CommentDto dto, string PostId)
+        [HttpPost("AddComment/{PostId}")]
+        public async Task<ActionResult<BaseResponse>> AddCommentToPost(CommentDto dto,[FromRoute] string PostId)
         {
-            //var userName = User.Claims.FirstOrDefault(c => c.Type == "FirstName")?.Value;
+            var userName = User.Claims.FirstOrDefault(c => c.Type == "DisplayName")?.Value;
             var userid = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            if (userid is null /*|| userName is null*/)
+            if (userid is null || userName is null)
             {
-                return Unauthorized();
+                return Unauthorized(new BaseResponse(false,"Unauthorized To Comment"));
             }
-            return await _commentService.CreateComment(dto.Text, userid, PostId);
+            return await _commentService.CreateComment(dto.Text, userid, PostId,userName);
         }
         [HttpPut("{CommentId}")]
         public async Task<ActionResult<BaseResponse>> EditComment([FromRoute] string CommentId, CommentDto dto)
@@ -42,7 +42,7 @@ namespace Blog.API.Controllers
             var userid = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             if (userid is null || comment.UserId != userid)
             {
-                return Unauthorized();
+                return Unauthorized(new BaseResponse(false, "Unauthorized To Reach This Comment"));
             }
             return await _commentService.EditComment(dto.Text, CommentId, userid);
         }
@@ -53,7 +53,7 @@ namespace Blog.API.Controllers
             var userid = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             if (userid is null || comment.UserId != userid)
             {
-                return Unauthorized();
+                return Unauthorized(new BaseResponse(false, "Unauthorized To Delete This Comment"));
             }
             return await _commentService.DeleteComment(CommentId, userid);
         }

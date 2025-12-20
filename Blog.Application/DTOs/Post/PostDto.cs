@@ -15,7 +15,7 @@ namespace Blog.Application.DTOs.Post
         public DateTimeOffset CreatedAt { get; set; }
         public string Category { get; set; }
         //public List<string> UserName { get; set; }
-        public List<string> Comments { get; set; }
-        //public List<CommentWithUser> Comments { get; set; }
+        //public List<string> Comments { get; set; }
+        public List<CommentWithUser> Comments { get; set; }
     }
 }

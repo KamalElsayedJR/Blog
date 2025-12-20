@@ -4,7 +4,6 @@ using Blog.Application.Interfaces;
 using Blog.Domain.Entities;
 using Blog.Domain.Interfaces;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -37,36 +36,31 @@ namespace Blog.API.Controllers
         [HttpPost("AddPost")]
         public async Task<ActionResult<BaseResponse>> AddPost(CreateOrUpdatePostDto dto)
         {
-            var userid = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            var userole = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
-            if (userid is null || userole.ToLower() != "admin" || userole.ToLower() != "editor")
-            {
-                return Unauthorized();
-            }
-            return await _postService.CreatePostAsync(dto, userid);
+            var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var userRoles = User.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value).ToList();
+            if (userId is null || !userRoles.Contains("admin") || !userRoles.Contains("editor")) return Unauthorized(new BaseResponse(false, "Unauthorized To Post"));
+            return await _postService.CreatePostAsync(dto, userId);
         }
-
+        [Authorize]
         [HttpPut("{PostId}")]
         public async Task<ActionResult<BaseResponse>> UpdatePost(CreateOrUpdatePostDto dto, [FromRoute] string PostId)
         {
             var Post = await _Uow.GenericRepository<Post>().GetByIdAsync(PostId);
             var userid = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            var userole = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
-            if (userid is null || userole.ToLower() != "admin" || Post.Id != userid)
-            {
-                return Unauthorized();
-            }
-            return await _postService.UpdatePostAsync(dto, userid, PostId);
+            var userRoles = User.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value).ToList();
+            if (userid is null || !userRoles.Contains("admin") || Post.UserId != userid) return Unauthorized(new BaseResponse(false, "Unauthorized edit This Post"));
+            return await _postService.UpdatePostAsync(dto, PostId);
         }
+        [Authorize]
         [HttpDelete("{PostId}")]
         public async Task<ActionResult<BaseResponse>> DeletePost([FromRoute] string PostId)
         {
             var Post = await _Uow.GenericRepository<Post>().GetByIdAsync(PostId);
             var userid = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            var userole = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
-            if (userid is null || userole.ToLower() != "admin" || Post.Id != userid)
+            var userRoles = User.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value).ToList();
+            if (userid is null || !userRoles.Contains("admin") || Post.UserId != userid)
             {
-                return Unauthorized();
+                return Unauthorized(new BaseResponse(false, "Unauthorized To Delete This Post"));
             }
             return await _postService.DeletePostAsync(PostId);
         }

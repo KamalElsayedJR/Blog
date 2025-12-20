@@ -16,9 +16,10 @@ namespace Blog.Infrastructure.Repositories
 
         public ICategoryRepository CategoryRepository { get; set; }
 
-        public UnitOfWork(BlogDbContext dbContext)
+        public UnitOfWork(BlogDbContext dbContext, ICategoryRepository _CategoryRepository)
         {
             _dbContext = dbContext;
+            CategoryRepository = _CategoryRepository;
         }
         public async ValueTask DisposeAsync()
         => await _dbContext.DisposeAsync();

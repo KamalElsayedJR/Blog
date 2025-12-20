@@ -17,18 +17,18 @@ namespace Blog.Application.Mapping
         {
             CreateMap<CreateOrUpdatePostDto,Post>();
             //CreateMap<Post, PostDto>().ForMember(P=>P.Comments);
-            CreateMap<Post, PostDto>()
-                .ForMember(dest => dest.Comments, opt => opt.MapFrom(src => src.Comments.Select(c => c.Text).ToList()))
-                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category.Name));
             //CreateMap<Post, PostDto>()
-            //         .ForMember(dest => dest.Comments,
-            //                    opt => opt.MapFrom(src => src.Comments.Select(c => new CommentWithUser
-            //                    {
-            //                        Comment = c.Text,
-            //                        UserName = c.UserName  // بما إنه مفيش جدول User، نرجع UserId
-            //                    }).ToList()))
-            //         .ForMember(dest => dest.Category,
-            //                    opt => opt.MapFrom(src => src.Category.Name));
+            //    .ForMember(dest => dest.Comments, opt => opt.MapFrom(src => src.Comments.Select(c => c.Text).ToList()))
+            //    .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category.Name));
+            CreateMap<Post, PostDto>()
+                     .ForMember(dest => dest.Comments,
+                                opt => opt.MapFrom(src => src.Comments.Select(c => new CommentWithUser
+                                {
+                                    Comment = c.Text,
+                                    UserName = c.UserName  // بما إنه مفيش جدول User، نرجع UserId
+                                }).ToList()))
+                     .ForMember(dest => dest.Category,
+                                opt => opt.MapFrom(src => src.Category.Name));
 
             CreateMap<Category, CategoryDto>();
         }
