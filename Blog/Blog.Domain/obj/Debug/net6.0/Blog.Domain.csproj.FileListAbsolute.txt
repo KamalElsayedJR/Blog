@@ -1,0 +1,11 @@
+D:\Dev\Blog\Blog\Blog.Domain\bin\Debug\net6.0\Blog.Domain.deps.json
+D:\Dev\Blog\Blog\Blog.Domain\bin\Debug\net6.0\Blog.Domain.dll
+D:\Dev\Blog\Blog\Blog.Domain\bin\Debug\net6.0\Blog.Domain.pdb
+D:\Dev\Blog\Blog\Blog.Domain\obj\Debug\net6.0\Blog.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev\Blog\Blog\Blog.Domain\obj\Debug\net6.0\Blog.Domain.AssemblyInfoInputs.cache
+D:\Dev\Blog\Blog\Blog.Domain\obj\Debug\net6.0\Blog.Domain.AssemblyInfo.cs
+D:\Dev\Blog\Blog\Blog.Domain\obj\Debug\net6.0\Blog.Domain.csproj.CoreCompileInputs.cache
+D:\Dev\Blog\Blog\Blog.Domain\obj\Debug\net6.0\Blog.Domain.dll
+D:\Dev\Blog\Blog\Blog.Domain\obj\Debug\net6.0\refint\Blog.Domain.dll
+D:\Dev\Blog\Blog\Blog.Domain\obj\Debug\net6.0\Blog.Domain.pdb
+D:\Dev\Blog\Blog\Blog.Domain\obj\Debug\net6.0\ref\Blog.Domain.dll
